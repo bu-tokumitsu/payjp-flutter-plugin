@@ -36,7 +36,6 @@ import io.flutter.plugin.common.MethodChannel.Result
 import jp.pay.android.Payjp
 import jp.pay.android.PayjpCardForm
 import jp.pay.android.PayjpConfiguration
-import jp.pay.android.cardio.PayjpCardScannerPlugin
 import jp.pay.android.model.ClientInfo
 import jp.pay.android.model.ExtraAttribute
 import jp.pay.android.model.TenantId
@@ -109,7 +108,6 @@ class PayjpFlutterPlugin: MethodCallHandler, FlutterPlugin, ActivityAware {
         .setDebugEnabled(debugEnabled)
         .setTokenBackgroundHandler(cardFormModule)
         .setLocale(locale)
-        .setCardScannerPlugin(PayjpCardScannerPlugin)
         .setClientInfo(clientInfo)
         .setThreeDSecureRedirectName(tdsRedirectKey)
         .build())
