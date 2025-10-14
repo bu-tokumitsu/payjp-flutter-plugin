@@ -12,5 +12,5 @@ struct PayjpPluginConstant {
     private init() {
     }
 
-    static let PluginVersion: String = "0.7.5"
+    static let PluginVersion: String = "0.7.6"
 }

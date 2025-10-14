@@ -1,3 +1,8 @@
+## 0.7.6
+
+- Removed the Card Scanner plugin (CardIO-based).  #96
+    - Reason: The dependent library (CardIO) does not support 16KB page size environments and is no longer maintained, which caused build compatibility issues. 
+
 ## 0.7.5
 
 - Update payjp-ios to [2.2.1](https://github.com/payjp/payjp-ios/releases/tag/2.2.1).
