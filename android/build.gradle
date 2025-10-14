@@ -84,8 +84,6 @@ android {
 
 dependencies {
     implementation "jp.pay:payjp-android:$payjpSdkVersion"
-    implementation "jp.pay:payjp-android-cardio:$payjpSdkVersion"
 
     implementation "androidx.appcompat:appcompat:1.7.0"
-    implementation "io.card:android-sdk:5.5.1"
 }
