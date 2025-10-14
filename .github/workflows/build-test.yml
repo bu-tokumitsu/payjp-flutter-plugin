@@ -10,8 +10,8 @@ on:
 env:
   FLUTTER_CHANNEL: stable
   CACHE_NUMBER: 0 # increment to truncate cache
-  IOS_SIMULATOR_DEVICE: iPhone 15 Pro
-  IOS_SIMULATOR_RUNTIME: iOS-17-5
+  IOS_SIMULATOR_DEVICE: iPhone 17 Pro
+  IOS_SIMULATOR_RUNTIME: iOS-26-0
   USER_JAVA_VERSION: 17
 
 jobs:
@@ -81,7 +81,7 @@ jobs:
 
   build-ios:
     needs: build
-    runs-on: macos-latest
+    runs-on: macos-15
     timeout-minutes: 30
     steps:
       # setup flutter
