@@ -1,3 +1,7 @@
+## 0.7.7
+
+- Update payjp-android to [2.2.1](https://github.com/payjp/payjp-android/releases/tag/2.2.1).
+
 ## 0.7.6
 
 - Removed the Card Scanner plugin (CardIO-based).  #96
