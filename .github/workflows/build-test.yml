@@ -71,6 +71,8 @@ jobs:
       # build app
       - name: Build android app
         run: make build-android-example
+      - name: Update Android cmdline-tools
+        run: yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager "cmdline-tools;latest"
       - name: Run e2e test on Android Emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
