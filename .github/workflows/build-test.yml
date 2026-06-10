@@ -71,6 +71,12 @@ jobs:
       # build app
       - name: Build android app
         run: make build-android-example
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+          ls -l /dev/kvm
       - name: Run e2e test on Android Emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
