@@ -61,6 +61,11 @@ android {
     }
 }
 
+dependencies {    
+    // クラッシュ再現：okhttpだけ 4.12.0 の場合、logging-interceptorは 3.12.13 のまま                                                                                                                                                                
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'                                                                                                                           
+}      
+
 flutter {
     source = "../.."
 }
