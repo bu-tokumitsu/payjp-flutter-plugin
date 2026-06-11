@@ -9,13 +9,14 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: actions/setup-java@v1
+      - uses: actions/setup-java@v4
         with:
-          java-version: '12.x'
-      - uses: subosito/flutter-action@v1
+          java-version: '17'
+          distribution: "zulu"
+      - uses: subosito/flutter-action@v2
       - run: flutter pub get
       - name: Cache Cocoapods
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         id: pods-cache
         with:
           path: example/ios/Pods
