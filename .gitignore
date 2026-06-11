@@ -15,3 +15,6 @@ build/
 *.iws
 .idea/
 example/ios/Flutter/.last_build_id
+
+# claude
+.serena
