@@ -8,6 +8,7 @@ on:
   workflow_dispatch:
 
 env:
+  FLUTTER_VERSION: 3.47.8
   FLUTTER_CHANNEL: stable
   CACHE_NUMBER: 0 # increment to truncate cache
   IOS_SIMULATOR_DEVICE: iPhone 17 Pro
@@ -27,6 +28,7 @@ jobs:
           distribution: "zulu"
       - uses: subosito/flutter-action@v2
         with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
           channel: ${{ env.FLUTTER_CHANNEL }}
       # configure cache
       - name: Cache Flutter
@@ -34,10 +36,9 @@ jobs:
         with:
           path: |
             /Users/runner/hostedtoolcache/flutter
-          key: ${{ runner.os }}-pub-${{ env.CACHE_NUMBER }}-${{ hashFiles('**/*/pubspec.lock') }}
+          key: ${{ runner.os }}-pub-${{ env.FLUTTER_VERSION }}-${{ env.CACHE_NUMBER }}-${{ hashFiles('**/*/pubspec.lock') }}
           restore-keys: |
-            ${{ runner.os }}-pub-${{ env.CACHE_NUMBER }}-
-            ${{ runner.os }}-pub-
+            ${{ runner.os }}-pub-${{ env.FLUTTER_VERSION }}-${{ env.CACHE_NUMBER }}-
       # check
       - run: make dependencies
       - run: make check
@@ -55,6 +56,7 @@ jobs:
           distribution: "zulu"
       - uses: subosito/flutter-action@v2
         with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
           channel: ${{ env.FLUTTER_CHANNEL }}
       - uses: gradle/actions/setup-gradle@v3
       - name: Cache Flutter
@@ -62,10 +64,9 @@ jobs:
         with:
           path: |
             /Users/runner/hostedtoolcache/flutter
-          key: ${{ runner.os }}-pub-${{ env.CACHE_NUMBER }}-${{ hashFiles('**/*/pubspec.lock') }}
+          key: ${{ runner.os }}-pub-${{ env.FLUTTER_VERSION }}-${{ env.CACHE_NUMBER }}-${{ hashFiles('**/*/pubspec.lock') }}
           restore-keys: |
-            ${{ runner.os }}-pub-${{ env.CACHE_NUMBER }}-
-            ${{ runner.os }}-pub-
+            ${{ runner.os }}-pub-${{ env.FLUTTER_VERSION }}-${{ env.CACHE_NUMBER }}-
       # prepare flutter
       - run: make dependencies
       # build app
@@ -100,16 +101,16 @@ jobs:
           distribution: "zulu"
       - uses: subosito/flutter-action@v2
         with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
           channel: ${{ env.FLUTTER_CHANNEL }}
       - name: Cache Flutter
         uses: actions/cache@v4
         with:
           path: |
             /Users/runner/hostedtoolcache/flutter
-          key: ${{ runner.os }}-pub-${{ env.CACHE_NUMBER }}-${{ hashFiles('**/*/pubspec.lock') }}
+          key: ${{ runner.os }}-pub-${{ env.FLUTTER_VERSION }}-${{ env.CACHE_NUMBER }}-${{ hashFiles('**/*/pubspec.lock') }}
           restore-keys: |
-            ${{ runner.os }}-pub-${{ env.CACHE_NUMBER }}-
-            ${{ runner.os }}-pub-
+            ${{ runner.os }}-pub-${{ env.FLUTTER_VERSION }}-${{ env.CACHE_NUMBER }}-
       # prepare flutter
       - run: make dependencies
       # build app
